@@ -47,6 +47,7 @@ import com.guru.fontawesomecomposelib.FaIcons
 import com.rai.reelsdemo.R
 import com.rai.reelsdemo.ui.components.ReelPlayer
 import com.rai.reelsdemo.ui.data.Reel
+import com.rai.reelsdemo.ui.data.reelsList
 
 import kotlin.math.abs
 
@@ -223,7 +224,13 @@ fun ReelBottomBar(
 
     }
 
+}
 
+@Composable
+fun ReelPolls(modifier: Modifier,reel: Reel){
+    Column {
+        //Yet to Implement...
+    }
 }
 
 @Composable
@@ -288,5 +295,5 @@ fun ShareReel(reel: Reel,context: Context){
 @Preview
 @Composable
 fun ReelsScreenPreview() {
-    ReelsScreens()
+    ReelContainer(reel = reelsList[1], onBackPress = {}, onReelShare = {} )
 }
