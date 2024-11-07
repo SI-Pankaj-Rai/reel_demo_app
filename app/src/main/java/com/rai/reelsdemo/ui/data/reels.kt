@@ -3,6 +3,34 @@ import androidx.compose.runtime.toMutableStateList
 
 val reelsList = listOf(
     Reel(
+        "https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8",
+        true,
+        ReelInfo(
+            "ItsPankajRai",
+            "https://scontent-mct1-1.cdninstagram.com/v/t51.2885-19/54513550_542278632927468_3913108728739528704_n.jpg?stp=dst-jpg_s150x150&_nc_ht=scontent-mct1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=cz9_T-UKvFMAX8iRnf5&edm=ALbqBD0BAAAA&ccb=7-5&oh=00_AT8Xtd3LXmYVOEbbtGA2W8dQGlbJHyv-gN5kJgH4IW5LAg&oe=6299BF34&_nc_sid=9a90d6",
+            "Ran with the trend, but made it cookies & cream version \uD83E\uDD5B\uD83C\uDF6A\n" +
+                    "\n" +
+                    "INGREDIENTS -\n" +
+                    "Plain rice cake\n" +
+                    "Peanut butter (reminded me of the Olsen twins dipping Oreos into peanut butter, please tell me I’m not the only one who remembers this)\n" +
+                    "Oreo pieces (gluten free if desired)\n" +
+                    "White chocolate chips (approx 2 tbsp)\n" +
+                    "Coconut oil (approx 1/2 tsp)\n" +
+                    "\n" +
+                    "DIRECTIONS -\n" +
+                    "1) Layer a generous amount of your favourite peanut butter or nut butter of choice on a rice cake. Then top with crumbled up Oreo pieces.\n" +
+                    "2) In a small bowl, microwave white chocolate chips and coconut oil in 30 second increments. Once completely melted, pour overtop Oreos and disperse evenly. Then top with a few more Oreo pieces.\n" +
+                    "3) Freeze for 20 minutes, then break into it and inhale!\n" +
+                    "\n" +
+                    "#ricecakes #ricecakedessert #easytreat #glutenfreetreat #glutenfreedessert #peanutbutterandchocolate #frozenbananas #glutenfreeblogger #glutenfreerecipes #easyrecipesathome #foodblogfeed #thebakefeed #feedfeedglutenfree #peanutbutterbanana #kelownafoodie",
+            false,
+            4193,
+            128,
+            "altego_music • Original Audio",
+            "https://scontent-mct1-1.cdninstagram.com/v/t51.2885-19/274969059_117165994229563_8118811520835177688_n.jpg?stp=dst-jpg_s150x150&_nc_ht=scontent-mct1-1.cdninstagram.com&_nc_cat=1&_nc_ohc=rr7KUgMYI54AX_cD8R0&edm=ACaJ6XgBAAAA&ccb=7-5&oh=00_AT8tV71goYhWRV4anlVv4NJYqVSJbQ9KqoHfNHKYYRx_vw&oe=629A762D&_nc_sid=0cc1b1",
+            location = "Kelowna, British Columbia"
+        )
+    ),  Reel(
         "https://user-images.githubusercontent.com/90382113/170887700-e405c71e-fe31-458d-8572-aea2e801eecc.mp4",
         true,
         ReelInfo(

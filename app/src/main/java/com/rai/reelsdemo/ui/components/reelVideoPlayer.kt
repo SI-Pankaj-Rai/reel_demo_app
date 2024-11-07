@@ -27,6 +27,7 @@ import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.DefaultHttpDataSource
 import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.exoplayer.hls.HlsMediaSource
 import androidx.media3.exoplayer.source.ProgressiveMediaSource
 import androidx.media3.ui.AspectRatioFrameLayout
 import androidx.media3.ui.PlayerView
@@ -47,18 +48,45 @@ fun rememberExoPlayerWithLifecycle(
 ): ExoPlayer {
 
     val context = LocalContext.current
-    val exoPlayer = remember(reelUrl) {
-        ExoPlayer.Builder(context).build().apply {
-            videoScalingMode = C.VIDEO_SCALING_MODE_SCALE_TO_FIT
-            repeatMode = Player.REPEAT_MODE_ONE
-            setHandleAudioBecomingNoisy(true)
-            val defaultDataSource = DefaultHttpDataSource.Factory()
-            val source = ProgressiveMediaSource.Factory(defaultDataSource)
-                .createMediaSource(MediaItem.fromUri(reelUrl))
-            setMediaSource(source)
-            prepare()
+
+    val exoPlayer = if (reelUrl.contains(".m3u8")) {
+        //HLS STREAMING SUPPORT
+        remember(reelUrl) {
+            ExoPlayer.Builder(context).build().apply {
+                videoScalingMode = C.VIDEO_SCALING_MODE_SCALE_TO_FIT
+                repeatMode = Player.REPEAT_MODE_ONE
+                setHandleAudioBecomingNoisy(true)
+
+                // Use DefaultHttpDataSource for network requests
+                val defaultDataSourceFactory = DefaultHttpDataSource.Factory()
+
+                // Create HLS media source for HLS streaming
+                val hlsMediaSource = HlsMediaSource.Factory(defaultDataSourceFactory)
+                    .createMediaSource(MediaItem.fromUri(reelUrl))
+
+                // Set and prepare the HLS media source
+                setMediaSource(hlsMediaSource)
+                prepare()
+            }
+        }
+    } else {
+        //HTTP STREAMING SUPPORT
+        remember(reelUrl) {
+            ExoPlayer.Builder(context).build().apply {
+                videoScalingMode = C.VIDEO_SCALING_MODE_SCALE_TO_FIT
+                repeatMode = Player.REPEAT_MODE_ONE
+                setHandleAudioBecomingNoisy(true)
+                val defaultDataSource = DefaultHttpDataSource.Factory()
+                val source = ProgressiveMediaSource.Factory(defaultDataSource)
+                    .createMediaSource(MediaItem.fromUri(reelUrl))
+                setMediaSource(source)
+                prepare()
+            }
         }
     }
+
+
+
     var appInBackground by remember {
         mutableStateOf(false)
     }
